@@ -6,13 +6,13 @@ class Habit(models.Model):
     name = models.CharField(max_length=150, verbose_name='название привычки',**NULLABLE)
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     place = models.CharField(max_length=150, verbose_name='место',**NULLABLE)
-    time = models.CharField(max_length=150, verbose_name='время',**NULLABLE)
+    time = models.TimeField(auto_now=False, auto_now_add=False, verbose_name='время',**NULLABLE)
     action = models.CharField(max_length=150, verbose_name='действие', **NULLABLE)
     lovely_habit_sign = models.BooleanField(default=True, **NULLABLE)
     associated_habit = models.ForeignKey('self', on_delete=models.CASCADE,verbose_name='связанная привычка', **NULLABLE)
     periodicity = models.IntegerField(default=1, verbose_name='периодичность',**NULLABLE)
     award = models.CharField(max_length=150, verbose_name='вознаграждение',**NULLABLE)
-    time_to_do = models.CharField(max_length=150, verbose_name='время на выполнение',**NULLABLE)
+    time_to_do = models.TimeField(auto_now=False, auto_now_add=False, verbose_name='время на выполнение',**NULLABLE)
     publicity = models.BooleanField(default=True, **NULLABLE)
 
     def __str__(self):

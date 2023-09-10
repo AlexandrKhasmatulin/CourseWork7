@@ -15,7 +15,7 @@ from users.models import User
 
 
 
-@shared_task
+
 # def about_subscription(request):
 #     mailing = Mailing.objects.get(title="Подписка")  # Get the specific Mailing object with the desired title
 #     title = mailing.title
@@ -47,6 +47,7 @@ from users.models import User
 #     # Send the email to all addresses in recipient_list
 #     send_mail(title, content, settings.EMAIL_HOST_USER, recipient_list)
 #     return render(request, "latter/email_complete.html")
+@shared_task
 def habits_notification(object_pk):
     habit = Habit.objects.all()
     bot = TeleBot(requests.get('https://api.telegram.org/bot6384050944:AAHAm3OqD-V32LT_1AF6skSr9apyyfxvBYo/getMe'))

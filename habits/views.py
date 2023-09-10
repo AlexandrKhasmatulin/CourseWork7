@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from datetime import datetime
 
-# Create your views here.
 from django.shortcuts import render
+from tasks import habits_notification
+# Create your views here.
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, generics
 from rest_framework.filters import OrderingFilter
@@ -37,6 +38,11 @@ class HabitCreateAPIView(generics.CreateAPIView):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
     permission_classes = [AllowAny]
+    def new_notification(self, serializer):
+        Habit.time.day = serializer.save()
+        current_dateTime = datetime.now()
+        if int(current_dateTime.day) - int(Habit.time.day)>= 7:
+            habits_notification.delay(Habit.user)
 
 class HabitListAPIView(generics.ListAPIView):
     serializer_class = HabitSerializer
