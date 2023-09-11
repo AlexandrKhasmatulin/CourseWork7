@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.shortcuts import render
-from tasks import habits_notification
+from habits.tasks import habits_notification
 # Create your views here.
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, generics
