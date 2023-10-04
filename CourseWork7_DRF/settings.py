@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'CourseWork7_DRF.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #       'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'CourseWork7',
@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'CourseWork7_DRF.wsgi.application'
 #       'PASSWORD': 'Alex030652',
 #       'HOST': '127.0.0.1',
 #   }
-#}
+# }
 DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
