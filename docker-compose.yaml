@@ -27,9 +27,7 @@ services:
       - '8001:8000'
     volumes:
       - .:/code
-    depends_on:
-      sqlite3:
-        condition: service_healthy
+
   celery:
     build: .
     tty: true
