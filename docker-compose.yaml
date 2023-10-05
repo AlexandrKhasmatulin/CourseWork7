@@ -31,7 +31,7 @@ services:
   celery:
     build: .
     tty: true
-    command: celery -A config worker -l INFO
+    command: celery -A CourseWork7 worker -l INFO
     depends_on:
       - redis
       - app
@@ -39,7 +39,7 @@ services:
     build: .
     restart: always
     tty: true
-    command: celery -A config beat -l INFO -S django
+    command: celery -A CourseWork7 beat -l INFO -S django
     depends_on:
       - redis
       - app
